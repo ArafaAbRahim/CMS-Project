@@ -13,16 +13,16 @@ class BaseController extends Controller
 
     public function services()
     {
-        
+        return view('services');
     }
 
     public function company()
     {
-        return "hellow";
+        return view('company');
     }
 
     public function contact_us()
     {
-        
+        return view('contact');
     }
 }

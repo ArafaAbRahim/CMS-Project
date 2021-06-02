@@ -144,12 +144,18 @@ nav > ul > li { list-style: none; }
     }    
 }
 
-.nav-item .tm-nav-link:hover,
-.nav-item.active .tm-nav-link {
+.f-active {
     color: #000;
     border-bottom: 5px solid #09F;
     border-left: none;
 }
+
+/* .nav-item .tm-nav-link:hover,
+.nav-item.active .tm-nav-link {
+    color: #000;
+    border-bottom: 5px solid #09F;
+    border-left: none;
+} */
 
 @media (max-width: 992px) {
     .navbar-nav .tm-nav-link {
