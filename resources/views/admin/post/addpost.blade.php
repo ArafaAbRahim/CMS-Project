@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="row">
-        {!! Form::open(['route'=>'post-store', 'enctype'=>'multipart/form-data']) !!}       
+        {!! Form::open(['route'=>['post-store', $post->id], 'enctype'=>'multipart/form-data']) !!}       
             @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
@@ -30,27 +30,29 @@
                     <div class="form-group has-feedback" style="position: relative;">                        
                         <label for="name" class="hws_form_label">Page :</label>
                         {{form::select('page_title', ['home'=>'Home', 'our_company'=>'Our Company', 'services'=>'Services', 'contact'=>'Contact'],
-                        '', ['class'=>'form-control'])}}
+                        $post->page_title, ['class'=>'form-control'])}}
                     </div>
 
                     <div class="form-group has-feedback" style="position: relative;">                        
                         <label class="hws_form_label">Section Title :</label>
-                        {{form::text('section_title', '', ['class'=>'form-control', 'placeholder'=>'Section Title'])}}
+                        {{form::text('section_title', $post->section_title, ['class'=>'form-control', 'placeholder'=>'Section Title'])}}
                     </div>
 
                     <div class="form-group has-feedback" style="position: relative;">                        
                         <label class="hws_form_label">Post Title :</label>
-                        {{form::text('title', '', ['class'=>'form-control', 'placeholder'=>'Title'])}}                       
+                        {{form::text('title', $post->title, ['class'=>'form-control', 'placeholder'=>'Title'])}}                       
                     </div>
 
                     <div class="form-group has-feedback" style="position: relative;">                        
                         <label class="hws_form_label">Post Description :</label>
-                        {{form::textarea('description', '', ['class'=>'editor form-control', 'id'=>'editor'])}}                       
+                        {{form::textarea('description', $post->description, ['class'=>'editor form-control', 'id'=>'editor'])}}                       
                     </div>
 
                     <div class="form-group has-feedback" style="position: relative;">                        
                         <label class="hws_form_label">Post Image :</label>
-                        {{form::file('image', ['class'=>'form-control', 'id'=>'file' ])}}                       
+                        <img src="{{url('uploads')}}/{{$post->image}}" style="height: 100px; width: 150px; margin-bottom: 10px;">
+                        {{Form::hidden('old_image', $post->image)}}
+                        {!! Form::file('image', ['class'=>'form-control', 'id'=>'file' ]) !!}                       
                     </div>
 
                     {{Form::submit('Save', ['class'=>'btn btn-primary'])}}

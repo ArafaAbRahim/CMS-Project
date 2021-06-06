@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth:admin'], function(){
     Route::post('/page-create', [PageController::class, 'createPage'])->name('page-create');
 
     Route::get('/post-add', [PostController::class, 'create'])->name('post-add');
-    Route::post('/post-add', [PostController::class, 'store'])->name('post-store');
+    Route::post('/post-add/{post_id?}', [PostController::class, 'store'])->name('post-store');
     Route::get('/post-show', [PostController::class, 'show'])->name('post-show');
+    Route::get('/post-edit/{post_id?}', [PostController::class, 'create'])->name('post-edit');
+    Route::post('/post-delete', [PostController::class, 'delete'])->name('post-delete');
 });
