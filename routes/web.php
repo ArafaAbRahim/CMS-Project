@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BaseController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,4 +21,11 @@ Route::post('/admin', [AdminController::class, 'makeLogin']);
 
 Route::group(['middleware' => 'auth:admin'], function(){
     Route::get('/dashboard', [AdminController::class, 'dashboard']);
+
+    Route::get('/page-add', [PageController::class, 'addPage'])->name('page-add');
+    Route::post('/page-create', [PageController::class, 'createPage'])->name('page-create');
+
+    Route::get('/post-add', [PostController::class, 'create'])->name('post-add');
+    Route::post('/post-add', [PostController::class, 'store'])->name('post-store');
+    Route::get('/post-show', [PostController::class, 'show'])->name('post-show');
 });
