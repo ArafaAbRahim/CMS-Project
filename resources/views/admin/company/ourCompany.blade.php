@@ -62,17 +62,17 @@
             </div>
 
             <div class="form-group has-feedback" style="position: relative;">
-                <h4>Forth Section </h4>
+                <h4>Fourth Section </h4>
                 <label class="hws_form_label">Title :</label>
-                {!! Form::hidden('txt_name[]', 'forth_title') !!}
+                {!! Form::hidden('txt_name[]', 'fourth_title') !!}
                 @if($total_row)
                     @foreach($page as $value)
-                        @if($value->section_title == 'forth_title')
-                            {!! Form::text('forth_title', $value->data, ['class'=>'form-control']) !!} 
+                        @if($value->section_title == 'fourth_title')
+                            {!! Form::text('fourth_title', $value->data, ['class'=>'form-control']) !!} 
                         @endif
                     @endforeach 
                 @else
-                {!! Form::text('forth_title', '', ['class'=>'form-control']) !!}
+                {!! Form::text('fourth_title', '', ['class'=>'form-control']) !!}
                 @endif       
             </div>
 

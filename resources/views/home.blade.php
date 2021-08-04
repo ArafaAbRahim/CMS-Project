@@ -1,6 +1,16 @@
 @extends('master')
 @section('content')
 
+    @if($home)
+        @foreach($home as $value)
+            @if($value->section_title == 'banner_image')
+                <style type="text/css">
+                    .tm-main-bg { background-image: url("{{ asset('uploads') }}/{{$value->data}}"); } 
+                </style>
+            @endif
+        @endforeach
+    @endif
+
     <div class="row">
         <div class="col-12">
             <div class="tm-main-bg"></div>        
@@ -13,7 +23,15 @@
         <section class="tm-welcome">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="tm-section-header tm-header-floating">Welcome to New Vision</h2>         
+                    <h2 class="tm-section-header tm-header-floating">
+                        @if($home)
+                            @foreach($home as $value)
+                                @if($value->section_title == 'second_title')
+                                    {{$value->data}}
+                                @endif
+                            @endforeach
+                        @endif
+                    </h2>         
                 </div>
             </div>
             
@@ -79,7 +97,15 @@
         <section class="tm-featured">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="tm-section-header tm-section-header-small">Featured Carousel Items</h2>        
+                    <h2 class="tm-section-header tm-section-header-small">
+                        @if($home)
+                            @foreach($home as $value)
+                                @if($value->section_title == 'fourth_icon')
+                                    {{$value->data}}
+                                @endif
+                            @endforeach
+                        @endif
+                    </h2>        
                 </div>
             </div>
             

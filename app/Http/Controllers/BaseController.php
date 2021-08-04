@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
     public function home()
     {
-        return view('home');
+        $home = Page::where('page_title', 'home')->get();
+        return view('home', ['home' => $home]);
     }
 
     public function services()
