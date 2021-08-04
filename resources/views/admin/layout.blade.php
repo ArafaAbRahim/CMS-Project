@@ -63,11 +63,11 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{asset('page-add')}}"><i class="fa fa-home"></i> HOME </a></li>                    
-                  <li><a><i class="fa fa-home"></i> COMPANY </a></li>    
+                  <li><a href="{{route('page-add')}}"><i class="fa fa-home"></i> HOME </a></li>                    
+                  <li><a href="{{route('company.page-add')}}"><i class="fa fa-home"></i> COMPANY </a></li>    
                   <li><a><i class="fa fa-home"></i> SERVICES </a></li>    
                   <li><a><i class="fa fa-home"></i> CONTACT </a></li>      
-                  <li><a href="{{asset('post-show')}}"><i class="fa fa-home"></i> POST </a></li>                                
+                  <li><a href="{{route('post-show')}}"><i class="fa fa-home"></i> POST </a></li>                                
                 </ul>
               </div>              
             </div>            

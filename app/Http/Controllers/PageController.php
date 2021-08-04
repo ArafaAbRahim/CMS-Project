@@ -20,6 +20,12 @@ class PageController extends Controller
         }
     }
 
+    public function ourcompany(Request $request)
+    {
+        $page = Page::where('page_title', 'our_company')->get();
+        return view('admin.company.ourCompany', ['page' => $page, 'total_row' => count($page)]);
+    }
+
     public function createPage(Request $request)
     {
         $pagevalues['title'] = $request->title;
@@ -78,6 +84,9 @@ class PageController extends Controller
             }
         }
 
-        return redirect('/page-add');
+        if($pagevalues['title'] == 'home')
+            return redirect('/page-add');
+        else
+            return redirect('/company-page-add');
     }
 }

@@ -7,11 +7,11 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/home', [BaseController::class, 'home']);
+Route::get('/', [BaseController::class, 'home']);
 Route::get('/services', [BaseController::class, 'services']);
 Route::get('/company', [BaseController::class, 'company']);
 Route::get('/contact_us', [BaseController::class, 'contact_us']);
@@ -24,7 +24,9 @@ Route::group(['middleware' => 'auth:admin'], function(){
 
     Route::get('/page-add', [PageController::class, 'addPage'])->name('page-add');
     Route::post('/page-create', [PageController::class, 'createPage'])->name('page-create');
-
+    Route::get('/company-page-add', [PageController::class, 'ourcompany'])->name('company.page-add');
+    
+    //Post routes
     Route::get('/post-add', [PostController::class, 'create'])->name('post-add');
     Route::post('/post-add/{post_id?}', [PostController::class, 'store'])->name('post-store');
     Route::get('/post-show', [PostController::class, 'show'])->name('post-show');

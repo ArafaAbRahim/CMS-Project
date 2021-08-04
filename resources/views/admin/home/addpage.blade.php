@@ -3,11 +3,11 @@
     <div class="row">
         {!! Form::open(['route'=>'page-create', 'enctype'=>'multipart/form-data']) !!}       
             @if($errors->any())
-            <div class="alert alert-danger">
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach                
-            </div>
+                <div class="alert alert-danger">
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach                
+                </div>
             @endif
             <div class="x_panel">
                 <div class="x_title">
@@ -59,7 +59,6 @@
                             @endif
                         @endforeach                                                                                                 
                     </div>
-
 
                     {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
                 </div>
