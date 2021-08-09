@@ -5,12 +5,14 @@ use App\Http\Controllers\BaseController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PostController;
 use App\Models\Page;
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
     $home = Page::where('page_title', 'home')->get();
-    return view('home', ['home' => $home]);
+    $post = Post::where('page_title', 'home')->get();
+    return view('home', ['home' => $home, 'post' => $post]);
 });
 
 Route::get('/home', [BaseController::class, 'home']);

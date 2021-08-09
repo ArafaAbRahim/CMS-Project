@@ -50,7 +50,9 @@
 
                     <div class="form-group has-feedback" style="position: relative;">                        
                         <label class="hws_form_label">Post Image :</label>
-                        <img src="{{url('uploads')}}/{{$post->image}}" style="height: 100px; width: 150px; margin-bottom: 10px;">
+                        @if($post->image)
+                            <img src="{{url('uploads')}}/{{$post->image}}" style="height: 100px; width: 150px; margin-bottom: 10px;">
+                        @endif
                         {{Form::hidden('old_image', $post->image)}}
                         {!! Form::file('image', ['class'=>'form-control', 'id'=>'file' ]) !!}                       
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class BaseController extends Controller
@@ -10,7 +11,8 @@ class BaseController extends Controller
     public function home()
     {
         $home = Page::where('page_title', 'home')->get();
-        return view('home', ['home' => $home]);
+        $post = Post::where('page_title', 'home')->get();
+        return view('home', ['home' => $home, 'post' => $post]);
     }
 
     public function services()
